@@ -1,4 +1,4 @@
-UserPrincipalName,DisplayName,LastLogonTimestamp
+UserPrincipalName,DisplayName,LastLogonDate
 awright@company.com,Alan Wright,2026-02-20T08:00:00Z
 dkim@company.com,Diana Kim,2024-07-04T13:45:00Z
 pharris@company.com,Paul Harris,2023-12-31T17:00:00Z

@@ -1,10 +1,10 @@
 import pandas as pd
 import os
-from datetime import datetime, timezone
+from datetime import datetime, date, timezone
 
 # Configuration
 timestamp = datetime.now().strftime("%Y-%m-%d")
-OUTPUT_FILE = f"stale_accounts_audit_{date}.csv"
+OUTPUT_FILE = f"stale_accounts_audit_{timestamp}.csv"
 STALE_THRESHOLD_DAYS = 90
 
 def audit_stale_accounts():

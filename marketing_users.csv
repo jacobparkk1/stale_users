@@ -1,4 +1,4 @@
-UserPrincipalName,DisplayName,LastLogonTimestamp
+UserPrincipalName,DisplayName,LastLogonDate
 mthompson@company.com,Mark Thompson,2024-03-10T09:15:00Z
 sjohnson@company.com,Sarah Johnson,2026-01-15T11:30:00Z
 rpatil@company.com,Raj Patil,2023-08-22T14:00:00Z
