@@ -19,19 +19,19 @@ def audit_stale_accounts():
     df = pd.read_csv(input_file)
 
     # Parse LastLogonTimestamp as datetime (UTC-aware)
-    df["LastLogonTimestamp"] = pd.to_datetime(df["LastLogonTimestamp"], utc=True)
+    df["LastLogonDate"] = pd.to_datetime(df["LastLogonDate"], utc=True)
 
     # Get current UTC time
     now = datetime.now(timezone.utc)
 
     # Calculate days since last logon
-    df["DaysSinceLastLogon"] = (now - df["LastLogonTimestamp"]).dt.days
+    df["DaysSinceLastLogon"] = (now - df["LastLogonDate"]).dt.days
 
     # Filter for stale accounts (>90 days since logon)
     stale_df = df[df["DaysSinceLastLogon"] > STALE_THRESHOLD_DAYS].copy()
 
     # Reorder columns for the output report
-    output_df = stale_df[["UserPrincipalName", "DisplayName", "LastLogonTimestamp", "DaysSinceLastLogon"]]
+    output_df = stale_df[["UserPrincipalName", "DisplayName", "LastLogonDate", "DaysSinceLastLogon"]]
 
     # Export to CSV
     output_df.to_csv(OUTPUT_FILE, index=False)
