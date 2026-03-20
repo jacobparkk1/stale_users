@@ -58,15 +58,15 @@ The script expects a CSV with these headers:
 |---|---|
 | `UserPrincipalName` | User's login name (e.g. jsmith@company.com) |
 | `DisplayName` | User's full name |
-| `LastLogonTimestamp` | Last login date/time in ISO 8601 format |
+| `LastLogonDate` | Last login date/time in ISO 8601 format |
 
 ---
 
 ## Output
 
-A file named `stale_accounts_audit.csv` is created in the same directory, containing only the flagged accounts:
+A file named `stale_accounts_audit_{date}.csv` is created in the same directory, containing only the flagged accounts:
 
-| UserPrincipalName | DisplayName | LastLogonTimestamp | DaysSinceLastLogon |
+| UserPrincipalName | DisplayName | LastLogonDate | DaysSinceLastLogon |
 |---|---|---|---|
 | bjones@company.com | Bob Jones | 2024-06-20 09:00:00+00:00 | 274 |
 | dwilson@company.com | David Wilson | 2023-11-05 11:10:00+00:00 | 501 |
@@ -74,10 +74,10 @@ A file named `stale_accounts_audit.csv` is created in the same directory, contai
 A summary is also printed to the terminal:
 ```
 Audit complete. 2 stale account(s) found (inactive > 90 days).
-Results exported to: stale_accounts_audit.csv
+Results exported to: stale_accounts_audit_{date}.csv
 ```
 
-> **Note:** If `stale_accounts_audit.csv` already exists, it will be overwritten on each run. If the file is open in Excel, close it before running the script.
+> **Note:** If `stale_accounts_audit_{date}.csv` already exists, it will be overwritten on each run. If the file is open in Excel, close it before running the script.
 
 ---
 
