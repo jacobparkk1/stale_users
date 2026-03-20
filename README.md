@@ -30,6 +30,15 @@ The script will prompt you to enter the filename:
 ```
 Enter file name: users.csv
 ```
+## Sample Data
+
+Three sample CSV files are included in the repo for testing:
+
+| File | Description |
+|---|---|
+| `users.csv` | General mixed dataset |
+| `marketing_users.csv` | Marketing department dataset |
+| `it_users.csv` | IT department dataset |
 
 ---
 
