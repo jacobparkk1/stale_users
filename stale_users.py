@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 
 # Configuration
 timestamp = datetime.now().strftime("%Y-%m-%d")
-OUTPUT_FILE = f"stale_accounts_audit_{timestamp}.csv"
+OUTPUT_FILE = f"stale_accounts_audit_{date}.csv"
 STALE_THRESHOLD_DAYS = 90
 
 def audit_stale_accounts():
