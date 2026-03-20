@@ -2,16 +2,16 @@ import pandas as pd
 import os
 from datetime import datetime, timezone
 
-# --- Configuration ---
+# Configuration
 timestamp = datetime.now().strftime("%Y-%m-%d")
 OUTPUT_FILE = f"stale_accounts_audit_{timestamp}.csv"
 STALE_THRESHOLD_DAYS = 90
 
 def audit_stale_accounts():
-	
-    input_file = input("Enter file name: ")
 
-    if not os.path.exists(input_file):
+	# Receive and verify filename
+    input_file = input("Enter file name: ")
+    if not os.path.exists(input_file): # 
         print(f"Error: '{input_file}' not found.")
         return
 
@@ -27,10 +27,10 @@ def audit_stale_accounts():
     # Calculate days since last logon
     df["DaysSinceLastLogon"] = (now - df["LastLogonTimestamp"]).dt.days
 
-    # Filter for stale accounts (no login in over 90 days)
+    # Filter for stale accounts (>90 days since logon)
     stale_df = df[df["DaysSinceLastLogon"] > STALE_THRESHOLD_DAYS].copy()
 
-    # Select and reorder columns for the output report
+    # Reorder columns for the output report
     output_df = stale_df[["UserPrincipalName", "DisplayName", "LastLogonTimestamp", "DaysSinceLastLogon"]]
 
     # Export to CSV
