@@ -20,10 +20,10 @@ pip install pandas
 
 ## Usage
 
-Place `audit_stale_accounts.py` in the same directory as your users CSV, then run:
+Place `stale_users.py` in the same directory as your users CSV, then run:
 
 ```bash
-python audit_stale_accounts.py
+python stale_users.py
 ```
 
 The script will prompt you to enter the filename:
